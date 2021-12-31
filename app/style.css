@@ -1,0 +1,58 @@
+body {
+    background-color: #2a2b2d;
+    color: #ebeaef;
+    padding: 30px;    
+}
+
+input {
+    background-color: #404143 !important;
+    color: #ebeaef !important;
+    border-color: #404143 !important;
+}
+
+#editor {
+    height: 100px;
+    padding: 10px;
+    background-color: #404143 !important;
+    color: #ebeaef !important;
+    border-color: #404143 !important;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    outline: 0px solid transparent !important;
+}
+
+.statement {
+    color: #758eff;
+}
+
+#editor[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #ffffff6c; 
+}
+
+#editor[placeholder]:empty:focus:before {
+    content: "";
+}
+
+.chrome-version {
+    display: inline-flex;
+}
+
+.form-check {
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.row {
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+.chrome-version p {
+    margin-left: 10px;
+    margin-top: 4px;
+}

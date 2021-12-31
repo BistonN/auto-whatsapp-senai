@@ -1,0 +1,28 @@
+{
+  "name": "auto-whatsapp-senai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BistonN/auto-whatsapp-senai.git"
+  },
+  "author": "BistonN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BistonN/auto-whatsapp-senai/issues"
+  },
+  "homepage": "https://github.com/BistonN/auto-whatsapp-senai#readme",
+  "devDependencies": {
+    "electron": "^16.0.5"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "electron-reload": "^2.0.0-alpha.1",
+    "nodemon": "^2.0.15"
+  }
+}
