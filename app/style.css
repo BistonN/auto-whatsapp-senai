@@ -37,6 +37,7 @@ input {
 
 .chrome-version {
     display: inline-flex;
+    max-height: 30px;
 }
 
 .form-check {
@@ -48,6 +49,14 @@ input {
     margin: 0;
 }
 
+.col-8 {
+    padding: 0;
+}
+
+.col-4 {
+    padding: 0;
+}
+
 h3 {
     margin: 0;
 }
@@ -55,4 +64,18 @@ h3 {
 .chrome-version p {
     margin-left: 10px;
     margin-top: 4px;
+}
+
+.modal-content {
+    background-color: #404143 !important;
+    color: #ebeaef !important;
+    border-color: #404143 !important;
+}
+
+.modal-header {
+    border-color: #404143 !important;
+}
+
+.modal-footer {
+    border-color: #404143 !important;
 }

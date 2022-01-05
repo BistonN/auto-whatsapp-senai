@@ -1,4 +1,4 @@
-const spawn = require("child_process").spawn;
+// const spawn = require("child_process").spawn;
 
 var keywords = ['*NOME*', '*NOME*,', '*NOME*.', '*NOME*!', '*NOME*;', '*NOME*?'];
 
@@ -34,17 +34,32 @@ jQuery(function ($) {
 });
 
 function submitForm() {
-  // const form = document.getElementById('form');
-  // console.log(form);
-  const pythonProcess = spawn(api_config.python_path)
-  pythonProcess.stderr.on('data', (data) => {
-    console.log(`-------------- ERRO -----------------\n${data}`);
-    throw 'Erro ao processar devolutiva'
-  });
+  let chromeVersion = Array.from(document.getElementsByName('chrome-version'));
+  chromeVersion = chromeVersion.filter(v => v.checked);
 
-  pythonProcess.on('close', (code) => {
-    console.log(`--------------- SERVIÇO CONCLUÍDO ---------------------\nCÓDIGO: ${code}`);
-  });
+  const file = document.getElementById('formFileLg').value;
+
+  let menssage = Array.from(document.querySelectorAll('#editor span'));
+  menssage = menssage.map(m => { return m.innerHTML.replace('&nbsp;', '') }).join(' ');
+
+  if (chromeVersion.length === 0) {
+    document.getElementsByClassName('modal-body')[0].innerHTML = `Selecione a versão de seu navegador google chrome. <br> Caso não saiba como ver a versão de seu navegador, acesse: <a
+          href="https://screencorp.zendesk.com/hc/pt-br/articles/115001590211-Visualizando-a-vers%C3%A3o-do-Google-Chrome">como ver a versão do google chome?</a>`;
+    $('#exampleModal').modal('toggle');
+  }
+
+  if (file.length === 0) {
+    document.getElementsByClassName('modal-body')[0].innerHTML = `Voce deve subir um arquivo csv contendo os nomes e telefones dos contatos.`;
+    $('#exampleModal').modal('toggle');
+  } else if (file.split('.')[file.split('.').length - 1] != 'csv') {
+    document.getElementsByClassName('modal-body')[0].innerHTML = `O arquivo que deve estar no formato .csv`;
+    $('#exampleModal').modal('toggle');
+  }
+
+  if (menssage.length === 0) {
+    document.getElementsByClassName('modal-body')[0].innerHTML = `Você precisa digitar uma mensagem. Voce pode usar *nome* na mensagem quando quiser usar o nome do contato`;
+    $('#exampleModal').modal('toggle');
+  }
 }
 
 function goPython() {

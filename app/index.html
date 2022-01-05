@@ -43,10 +43,31 @@
     <input class="form-control form-control-lg mt-1" id="formFileLg" type="file">
 
     <div id="editor" contenteditable="true" class="mt-2" placeholder="Digite sua mensagem"></div>
-    <p class="text-muted">Digite "*nome*" quando quiser chamar o nome da pessoa.</p>
+    <div class="row">
+      <div class="col-8">
+        <p class="text-muted mt-1">Digite "*nome*" quando quiser chamar o nome da pessoa.</p>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-primary float-end mt-2" onclick="submitForm()">Começar</button>
+      </div>
+    </div>
 
-    <button type="button" class="btn btn-primary" onclick="submitForm()">Começar</button>
   </form>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ops houve um erro no formulário!</h5>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="$('#exampleModal').modal('toggle')">Okay</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
