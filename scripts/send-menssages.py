@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 import urllib
 
-contatos_df = pd.read_csv('../files/test.csv')
+contatos_df = pd.read_csv('./files/test.csv')
 navegador = webdriver.Chrome('drivers/linux-96/chromedriver')
 navegador.get('https://web.whatsapp.com/')
 
