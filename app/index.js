@@ -2,7 +2,7 @@ const spawn = require('child_process').spawn;
 var keywords = ['*NOME*', '*NOME*,', '*NOME*.', '*NOME*!', '*NOME*;', '*NOME*?'];
 var $ = require('jquery');
 // var pythonExecutable = "../sendMenssages/bin/python3";
-var pythonExecutable = './sendMenssages/autowhats/Scripts/python.exe';
+var pythonExecutable = './extraResources/sendMenssages/autowhats/Scripts/python.exe';
 
 $('#editor').on('keyup', function (e) {
   if (e.keyCode == 32) {
