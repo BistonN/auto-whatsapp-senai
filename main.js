@@ -1,7 +1,6 @@
 const electron = require('electron');
 const { app, BrowserWindow } = electron;
 const path = require('path');
-const process = require('./nodemon.json');
 
 require('electron-reload')(__dirname + '/app/index.html', {
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
@@ -24,5 +23,5 @@ app.on('ready', () => {
     // require('./controllers/utils');
     mainWindow.setMenu(null);
     mainWindow.loadURL(`file://${__dirname}/app/index.html`);
-    process.env.NODE_ENV !== 'production' && mainWindow.openDevTools();
+    //process.env.NODE_ENV !== 'production' && mainWindow.openDevTools();
 });

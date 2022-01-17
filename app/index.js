@@ -2,7 +2,7 @@ const spawn = require('child_process').spawn;
 var keywords = ['*NOME*', '*NOME*,', '*NOME*.', '*NOME*!', '*NOME*;', '*NOME*?'];
 var $ = require('jquery');
 // var pythonExecutable = "../sendMenssages/bin/python3";
-var pythonExecutable = '/bin/python3';
+var pythonExecutable = './sendMenssages/autowhats/Scripts/python.exe';
 
 $('#editor').on('keyup', function (e) {
   if (e.keyCode == 32) {
@@ -74,10 +74,10 @@ function callSelenium(file_path, menssage, chrome_version) {
     return String.fromCharCode.apply(null, data);
   };
 
-  path = window.location.pathname.split('/app')[0] + '/scripts/send_menssages.py'
+  //path = window.location.pathname.split('/app')[0] + '/scripts/send_menssages.py'
 
   const scriptExecution = spawn(pythonExecutable,
-    [path, file_path, menssage, String(chrome_version)]);  
+    ['./scripts/send_menssages.py', file_path, menssage, String(chrome_version)]);  
 
   scriptExecution.stdout.on('data', (data) => {
     console.log(uint8arrayToString(data));
