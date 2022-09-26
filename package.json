@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/BistonN/auto-whatsapp-senai#readme",
   "devDependencies": {
-    "electron": "^16.0.5",
+    "electron": "^16.2.8",
     "electron-packager": "^15.4.0"
   },
   "dependencies": {

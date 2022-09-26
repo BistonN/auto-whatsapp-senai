@@ -2,7 +2,7 @@ const spawn = require('child_process').spawn;
 var keywords = ['*NOME*', '*NOME*,', '*NOME*.', '*NOME*!', '*NOME*;', '*NOME*?'];
 var $ = require('jquery');
 // var pythonExecutable = "../sendMenssages/bin/python3";
-var pythonExecutable = './extraResources/sendMenssages/autowhats/Scripts/python.exe';
+var pythonExecutable = './extraResources/sendMenssages/Python310/python.exe';
 
 $('#editor').on('keyup', function (e) {
   if (e.keyCode == 32) {
@@ -76,18 +76,23 @@ function callSelenium(file_path, menssage, chrome_version) {
 
   //path = window.location.pathname.split('/app')[0] + '/scripts/send_menssages.py'
 
+  console.log(String(chrome_version), pythonExecutable, file_path)
   const scriptExecution = spawn(pythonExecutable,
-    ['./scripts/send_menssages.py', file_path, menssage, String(chrome_version)]);  
+    ['./extraResources/scripts/send_menssages.py', file_path, menssage, String(chrome_version)]);
 
   scriptExecution.stdout.on('data', (data) => {
-    console.log(uint8arrayToString(data));
+    console.log('pattern: ', data.toString());
   });
 
   scriptExecution.stderr.on('data', (data) => {
-    console.log(uint8arrayToString(data));
+    console.error('err: ', data.toString());
   });
 
-  scriptExecution.on('exit', (code) => {
-    console.log("Process quit with code : " + code);
+  scriptExecution.on('error', (error) => {
+    console.error('error: ', error.message);
+  });
+
+  scriptExecution.on('close', (code) => {
+    console.log('child process exited with code ', code);
   });
 }
