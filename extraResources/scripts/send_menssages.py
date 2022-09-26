@@ -41,17 +41,11 @@ def send_menssages(file_path, menssage, chrome_version):
             driver.get(link)
 
             while len(driver.find_elements_by_id('side')) < 1:
-                print('loop1')
                 time.sleep(1)
-            
-            if wait < 3:
-                while len(driver.find_elements_by_css_selector('footer div div span div div div button')) < 1:
-                    print('loop2')
-                    time.sleep(1)
-            
-            time.sleep(1)
+
+            time.sleep(2)
             driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]/button').click()
-            time.sleep(9)
+            time.sleep(5)
     driver.close()
 
 send_menssages(sys.argv[1], sys.argv[2], sys.argv[3])
